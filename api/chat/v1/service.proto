@@ -1,5 +1,5 @@
 syntax = "proto3";
-import "api/chat/v1/messages.proto";
+import "messages.proto";
 
 package ChatService.api.chat;
 
