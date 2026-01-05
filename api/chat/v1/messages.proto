@@ -1,0 +1,45 @@
+syntax = "proto3";
+package ChatService.api.chat;
+option go_package = "proto/pkg/api/chat;chat";
+
+// Запрос на создание личного чата с другим пользователем
+message CreateDirectChatRequest{
+  string participant_id = 1;
+}
+
+// Ответ на создание личного чата с другим пользователем
+message CreateDirectChatResponse {
+  string chat_id = 1;
+}
+
+// Запрос на получение информации о чате
+message GetChatRequest {
+  string chat_id = 1;
+}
+
+// Chat — DTO чата.
+// Описывает минимальную информацию о чате, возвращаемую gRPC-методами.
+message Chat {
+  string chat_id = 1;
+
+  enum Type {
+    DIRECT = 0;
+    GROUP = 1;
+  }
+  Type type = 2;
+}
+
+// Ответ на получение информации о чате.
+message GetChatResponse {
+  Chat chat = 1;
+}
+
+// Запрос на получение списка чатов пользователя.
+message ListUserChatsRequest {
+  string user_id = 1;
+}
+
+// Ответ на получение списка чатов пользователя.
+message ListUserChatsResponse {
+  repeated Chat chats = 1;
+}
