@@ -43,3 +43,23 @@ message ListUserChatsRequest {
 message ListUserChatsResponse {
   repeated Chat chats = 1;
 }
+
+// Запрос на стрим сообщений
+message StreamMessagesRequest {
+  string chat_id = 1;
+  optional int64 since_unix_ms = 2;
+}
+
+// Ответ в виде стрима сообщений
+message StreamMessagesResponse {
+  Message message = 1;
+}
+
+// Сообщение
+message Message {
+  string id = 1;
+  string chat_id = 2;
+  string sender_id = 3;
+  string text = 4;
+  int64 created_unix_ms = 5;
+}
