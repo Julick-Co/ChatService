@@ -1,11 +1,11 @@
 # ChatService
 Сервис для управления чатами
 
-# Генерация protobuf и gRPC
+## Генерация protobuf и gRPC
 Запусти команды в терминале:
 
+```bash
 # Установка генераторов Go
-```
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 ```
