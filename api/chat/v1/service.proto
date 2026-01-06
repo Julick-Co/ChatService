@@ -19,4 +19,13 @@ service ChatService {
 
   // Серверный стрим новых сообщений
   rpc StreamMessages(StreamMessagesRequest) returns (stream StreamMessagesResponse) {}
+
+  // Получить список участников чата
+  rpc ListChatMembers(ListChatMembersRequest) returns (ListChatMembersResponse) {}
+
+  // Отправить сообщение в чат
+  rpc SendMessages(SendMessagesRequest) returns (SendMessagesResponse) {}
+
+  // Получить список сообщений чата
+  rpc ListMessages(ListMessagesRequest) returns (ListMessagesResponse) {}
 }

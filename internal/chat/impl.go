@@ -84,3 +84,52 @@ func (s *ChatServiceImpl) StreamMessages(request *pb.StreamMessagesRequest,
 
 	return nil
 }
+
+func (s *ChatServiceImpl) ListChatMembers(ctx context.Context, req *pb.ListChatMembersRequest,
+) (*pb.ListChatMembersResponse, error) {
+
+	log.Println("Достучался до метода ListChatMembers")
+
+	return &pb.ListChatMembersResponse{
+		UserIds: []string{},
+	}, nil
+}
+
+func (s *ChatServiceImpl) SendMessages(ctx context.Context, req *pb.SendMessagesRequest,
+) (*pb.SendMessagesResponse, error) {
+
+	log.Println("Достучался до метода SendMessages")
+
+	return &pb.SendMessagesResponse{
+		Messages: &pb.Message{
+			Id:            "123",
+			ChatId:        "321",
+			SenderId:      "1",
+			Text:          "qwerty",
+			CreatedUnixMs: 1,
+		},
+	}, nil
+}
+
+func (s *ChatServiceImpl) ListMessages(ctx context.Context, req *pb.ListMessagesRequest,
+) (*pb.ListMessagesResponse, error) {
+
+	log.Println("Достучался до метода ListMessages")
+
+	nextCursor := "111"
+
+	messages := []*pb.Message{
+		{
+			Id:            "123",
+			ChatId:        req.ChatId,
+			SenderId:      "1",
+			Text:          "qwerty",
+			CreatedUnixMs: 1,
+		},
+	}
+
+	return &pb.ListMessagesResponse{
+		Messages:   messages,
+		NextCursor: &nextCursor,
+	}, nil
+}
