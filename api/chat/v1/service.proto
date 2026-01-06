@@ -1,0 +1,18 @@
+syntax = "proto3";
+import "messages.proto";
+
+package ChatService.api.chat;
+
+option go_package = "proto/pkg/api/chat;chat";
+
+service ChatService {
+
+  // Создает личный чат с пользователем
+  rpc CreateDirectChat(CreateDirectChatRequest) returns (CreateDirectChatResponse){}
+
+  // Получает информацию о чате
+  rpc GetChat(GetChatRequest) returns (GetChatResponse){}
+
+  // Получает список чатов пользователя
+  rpc ListUserChats(ListUserChatsRequest) returns (ListUserChatsResponse){}
+}
