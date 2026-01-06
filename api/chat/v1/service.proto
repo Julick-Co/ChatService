@@ -1,4 +1,5 @@
 syntax = "proto3";
+
 import "messages.proto";
 
 package ChatService.api.chat;
@@ -15,4 +16,7 @@ service ChatService {
 
   // Получает список чатов пользователя
   rpc ListUserChats(ListUserChatsRequest) returns (ListUserChatsResponse){}
+
+  // Серверный стрим новых сообщений
+  rpc StreamMessages(StreamMessagesRequest) returns (stream StreamMessagesResponse) {}
 }

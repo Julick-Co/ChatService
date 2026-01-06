@@ -3,7 +3,9 @@ package chat
 import (
 	pb "ChatService/proto/pkg/api/chat"
 	"context"
+	"fmt"
 	"log"
+	"time"
 )
 
 type ChatServiceImpl struct {
@@ -54,4 +56,31 @@ func (s *ChatServiceImpl) ListUserChats(
 			},
 		},
 	}, nil
+}
+
+func (s *ChatServiceImpl) StreamMessages(request *pb.StreamMessagesRequest,
+	stream pb.ChatService_StreamMessagesServer) error {
+
+	log.Println("Достучался до метода StreamMessages")
+
+	for i := 0; i < 3; i++ {
+		j := 3
+		msg := &pb.StreamMessagesResponse{
+			Message: &pb.Message{
+				Id:            fmt.Sprintf("%d", i),
+				ChatId:        fmt.Sprintf("%d", j),
+				SenderId:      "system",
+				Text:          "hello",
+				CreatedUnixMs: time.Now().UnixMilli(),
+			},
+		}
+
+		j--
+
+		if err := stream.Send(msg); err != nil {
+			return err
+		}
+	}
+
+	return nil
 }
