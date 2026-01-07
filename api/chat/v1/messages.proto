@@ -63,3 +63,37 @@ message Message {
   string text = 4;
   int64 created_unix_ms = 5;
 }
+
+// Запрос на получение списка участников чата
+message ListChatMembersRequest {
+  string chat_id = 1;
+}
+
+// Ответ с перечнем участников чата
+message ListChatMembersResponse {
+  repeated string user_ids = 1;
+}
+
+// Запрос на отправку сообщения в чат
+message SendMessagesRequest {
+  string chat_id = 1;
+  string text = 2;
+}
+
+// Ответ с отправленным сообщением
+message SendMessagesResponse {
+  Message messages = 1;
+}
+
+// Запрос на получение списка сообщений чата
+message ListMessagesRequest {
+  string chat_id = 1;
+  int64 limit = 2;
+  optional string cursor = 3;
+}
+
+// Ответ с перечнем сообщений чата
+message ListMessagesResponse {
+  repeated Message messages = 1;
+  optional string next_cursor = 2;
+}
