@@ -2,7 +2,7 @@ package main
 
 import (
 	"chatservice/internal/chat"
-	pb "chatservice/proto/pkg/api/v1/chat"
+	pb "chatservice/proto/api/v1/chat"
 	"log"
 	"net"
 
