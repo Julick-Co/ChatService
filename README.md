@@ -11,5 +11,5 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 ```
 
 ```bash
-$ protoc --proto_path=./api/chat/v1 --go_out=. --go-grpc_out=. api/chat/v1/messages.proto api/chat/v1/service.proto
-```
+# Генерация кода из proto-файлов
+protoc --proto_path=./api/v1/chat --go_out=. --go-grpc_out=. api/v1/chat/messages.proto api/v1/chat/service.proto

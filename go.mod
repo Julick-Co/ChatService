@@ -1,4 +1,4 @@
-module ChatService
+module chatservice
 
 go 1.25
 

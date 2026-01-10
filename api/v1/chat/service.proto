@@ -2,9 +2,9 @@ syntax = "proto3";
 
 import "messages.proto";
 
-package ChatService.api.chat;
+package api.v1.chat;
 
-option go_package = "proto/pkg/api/chat;chat";
+option go_package = "chatservice/pkg/api/v1/chat;chat";
 
 service ChatService {
 
