@@ -1,6 +1,6 @@
 syntax = "proto3";
 package ChatService.api.chat;
-option go_package = "proto/pkg/api/chat;chat";
+option go_package = "proto/api/v1/chat;chat";
 
 // Запрос на создание личного чата с другим пользователем
 message CreateDirectChatRequest{

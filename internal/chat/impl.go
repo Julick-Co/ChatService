@@ -1,7 +1,7 @@
 package chat
 
 import (
-	pb "ChatService/proto/pkg/api/chat"
+	pb "chatservice/proto/api/v1/chat"
 	"context"
 	"fmt"
 	"log"
